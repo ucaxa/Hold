@@ -249,25 +249,6 @@ workspace-hold/
 
 ---
 
-## Documentação (HTML e PDF)
-
-A documentação técnica está em **`docs/`** nos formatos:
-
-- **docs/DOCUMENTACAO_HOLD.html** — para abrir no navegador.
-- **docs/DOCUMENTACAO_HOLD.pdf** — para impressão ou envio.
-
-Para regerar a partir do Markdown (após alterar `docs/DOCUMENTACAO_HOLD.md`):
-
-```bash
-cd docs
-npm install
-npm run build
-```
-
-Veja **docs/COMO_GERAR_PDF.md** para outras opções (extensão do editor, Pandoc, etc.).
-
----
-
 ## Resumo rápido de comandos
 
 | Ação | Comando |
@@ -279,3 +260,4 @@ Veja **docs/COMO_GERAR_PDF.md** para outras opções (extensão do editor, Pando
 
 Aplicação: **http://localhost:4200**  
 API / Swagger: **http://localhost:8080** / **http://localhost:8080/swagger-ui.html**
+
