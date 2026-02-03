@@ -227,15 +227,6 @@ workspace-hold/
 │   ├── package.json
 │   ├── tailwind.config.js
 │   └── angular.json
-│
-├── docs/                       # Documentação
-│   ├── DOCUMENTACAO_HOLD.md    # Fonte (Markdown)
-│   ├── DOCUMENTACAO_HOLD.html  # Documentação em HTML (gerado)
-│   ├── DOCUMENTACAO_HOLD.pdf   # Documentação em PDF (gerado)
-│   ├── COMO_GERAR_PDF.md       # Como regerar HTML/PDF
-│   ├── build-docs.js           # Script que gera HTML a partir do .md
-│   ├── build-pdf.js            # Script que gera PDF a partir do HTML
-│   └── package.json            # Scripts: npm run build (html + pdf)
 └── README.md                   # Este arquivo
 ```
 
@@ -246,25 +237,6 @@ workspace-hold/
 - **Pessoa:** nome (obrigatório), CPF (opcional, validado), data de nascimento, sexo (obrigatório), altura (obrigatória), e-mail (opcional, validado). ID gerado automaticamente.
 - **Fluxo na tela:** Pesquisar lista pessoas (por nome ou todas). Após pesquisa com resultado, o usuário pode selecionar uma linha e usar **Alterar**, **Excluir** ou **Peso Ideal**. O botão **Incluir** está sempre disponível.
 - **Peso ideal:** calculado no backend e exibido em popup no frontend. Homens: (72,7 × altura) − 58; Mulheres: (62,1 × altura) − 44,7 (altura em metros, resultado em kg).
-
----
-
-## Documentação (HTML e PDF)
-
-A documentação técnica está em **`docs/`** nos formatos:
-
-- **docs/DOCUMENTACAO_HOLD.html** — para abrir no navegador.
-- **docs/DOCUMENTACAO_HOLD.pdf** — para impressão ou envio.
-
-Para regerar a partir do Markdown (após alterar `docs/DOCUMENTACAO_HOLD.md`):
-
-```bash
-cd docs
-npm install
-npm run build
-```
-
-Veja **docs/COMO_GERAR_PDF.md** para outras opções (extensão do editor, Pandoc, etc.).
 
 ---
 
@@ -279,3 +251,5 @@ Veja **docs/COMO_GERAR_PDF.md** para outras opções (extensão do editor, Pando
 
 Aplicação: **http://localhost:4200**  
 API / Swagger: **http://localhost:8080** / **http://localhost:8080/swagger-ui.html**
+
+
