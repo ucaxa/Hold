@@ -227,15 +227,6 @@ workspace-hold/
 │   ├── package.json
 │   ├── tailwind.config.js
 │   └── angular.json
-│
-├── docs/                       # Documentação
-│   ├── DOCUMENTACAO_HOLD.md    # Fonte (Markdown)
-│   ├── DOCUMENTACAO_HOLD.html  # Documentação em HTML (gerado)
-│   ├── DOCUMENTACAO_HOLD.pdf   # Documentação em PDF (gerado)
-│   ├── COMO_GERAR_PDF.md       # Como regerar HTML/PDF
-│   ├── build-docs.js           # Script que gera HTML a partir do .md
-│   ├── build-pdf.js            # Script que gera PDF a partir do HTML
-│   └── package.json            # Scripts: npm run build (html + pdf)
 └── README.md                   # Este arquivo
 ```
 
@@ -260,4 +251,5 @@ workspace-hold/
 
 Aplicação: **http://localhost:4200**  
 API / Swagger: **http://localhost:8080** / **http://localhost:8080/swagger-ui.html**
+
 
