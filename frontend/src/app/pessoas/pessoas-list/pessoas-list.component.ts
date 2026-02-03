@@ -161,6 +161,14 @@ export class PessoasListComponent implements OnInit {
   /** Abre o formulário para incluir uma nova pessoa (sem exigir seleção). */
   openFormForNew(): void {
     this.editing.set(null);
+    this.formData.set({
+      nome: '',
+      cpf: '',
+      dataNascimento: '',
+      sexo: 'M',
+      altura: 0,
+      email: '',
+    });
     this.formErrors.set({});
     this.formOpen.set(true);
   }
@@ -304,7 +312,11 @@ export class PessoasListComponent implements OnInit {
     this.pessoaService.excluir(p.id).subscribe({
       next: () => {
         this.selected.set(null);
+        this.searchTerm.set('');
+        this.page.set(0);
         this.loadPessoas();
+        this.successMessage.set('Registro excluído com sucesso');
+        setTimeout(() => this.successMessage.set(null), 4000);
       },
       error: (e) => alert('Erro ao excluir: ' + (e?.error?.message ?? e?.message)),
     });
