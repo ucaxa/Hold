@@ -14,7 +14,7 @@
       <button type="button" (click)="onPesquisar()" class="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
         Pesquisar
       </button>
-      <button type="button" (click)="openForm()" class="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">Incluir</button>
+      <button type="button" (click)="openFormForNew()" class="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">Incluir</button>
     </div>
     <div class="flex items-center gap-2 flex-wrap">
       <button type="button" (click)="openForm(selectedPessoa() ?? undefined)" [disabled]="!canAlterOrExclude()"

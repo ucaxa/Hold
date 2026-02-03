@@ -97,6 +97,7 @@ export class PessoasListComponent implements OnInit {
           this.totalElements.set(list.length);
           this.totalPages.set(1);
           this.loading.set(false);
+          this.updateSelectionAfterLoad(list);
         },
         error: (err) => {
           this.error.set(err?.message ?? 'Erro ao carregar pessoas');
@@ -111,6 +112,7 @@ export class PessoasListComponent implements OnInit {
           this.totalElements.set(res.totalElements);
           this.totalPages.set(res.totalPages);
           this.loading.set(false);
+          this.updateSelectionAfterLoad(res.content);
         },
         error: (err) => {
           this.error.set(err?.message ?? 'Erro ao carregar pessoas');
@@ -134,6 +136,18 @@ export class PessoasListComponent implements OnInit {
     this.loadPessoas();
   }
 
+  /**
+   * Após carregar a lista: se retornou 1 registro, seleciona automaticamente (Alterar/Excluir sem clicar na linha);
+   * se retornou 0 ou mais de 1, limpa a seleção (com vários, o usuário deve clicar no registro desejado).
+   */
+  private updateSelectionAfterLoad(list: PessoaResponse[]): void {
+    if (list.length === 1) {
+      this.selected.set(list[0]);
+    } else {
+      this.selected.set(null);
+    }
+  }
+
   goToPage(p: number): void {
     if (p < 0 || p >= this.totalPages()) return;
     this.page.set(p);
@@ -144,6 +158,14 @@ export class PessoasListComponent implements OnInit {
     this.selected.set(p);
   }
 
+  /** Abre o formulário para incluir uma nova pessoa (sem exigir seleção). */
+  openFormForNew(): void {
+    this.editing.set(null);
+    this.formErrors.set({});
+    this.formOpen.set(true);
+  }
+
+  /** Abre o formulário para alterar a pessoa passada ou a selecionada na tabela. */
   openForm(p?: PessoaResponse): void {
     if (!p && !this.selected()) {
       alert('Selecione uma pessoa na tabela para alterar.');
